@@ -1,2 +1,24 @@
 make; ./app
 make tests; ./tester
+
+Run ./app without args for help;
+
+Write your code in fcompression.cpp;
+
+Some functions, that could be useful for your project (look bmplib.h for details):
+  [*] Image  *load_image        (const char *filename);              
+  [*] bool    save_image        (const char *filename, Image *image);
+  [*] bool    draw_solid_image  (const char *filename, uint32_t height, uint32_t width, 
+                                 uint8_t color[3]);
+                                 
+                                      ColorSpace may be RGB or YUV
+  [*] ImageMatrix  *get_image_matrix  (Image *base_image, ColorSpace colorspace); 
+  
+  
+  !!! Load the image, then use ImageMatrix and work with matrix, not with the image! !!!
+  !!! After call of ImageMatrix, you don't need to save the Image object, ImageMatrix contains pixel per each channel. !!!
+  
+  
+Don't forget to delete all resources after all:
+  [*] void delete_image        (Image *image);
+  [*] void delete_image_matrix (ImageMatrix *matrix);
